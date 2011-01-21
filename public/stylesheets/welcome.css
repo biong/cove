@@ -1,0 +1,15 @@
+.clear{clear:both;}
+
+.user_info{float:right;}
+
+.cove_header{float:left;}
+
+.checkerboard{
+	float:left;
+	font-size: 600%;
+	width:200px;
+	length:200px;
+	text-align:center;
+	background-color: gray;
+	border:2px solid #ffffff;
+}
