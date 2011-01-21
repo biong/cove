@@ -16,21 +16,6 @@ Logged in as: <%=current_user.email%>
 <br class="clear"/>
 <hr />
 
-<style>
-.clear{clear:both;}
-.user_info{float:right;}
-.cove_header{float:left;}
-.checkerboard{
-float:left;
-font-size: 600%;
-width:200px;
-length:200px;
-text-align:center;
-background-color: gray;
-border:2px solid #ffffff;
-
-}
-</style>
 <%(0..15).each do |number| %>
 <div class="checkerboard"><img src="/images/dance_3.jpg" width="200" height="150" /></div>
 <%end%>
