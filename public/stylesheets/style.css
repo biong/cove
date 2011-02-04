@@ -217,9 +217,14 @@ button {  width: auto; overflow: visible; }
 
 /* Style for Interval Thumbnails */
 
+.results {
+    margin: 10px;
+}
+
 .thumbnail_wrapper {
     margin: 10px;
 }
+
 .thumbnail_wrapper div.thumbnail_screenshot {
   float: left;
   width: 148px;
@@ -261,7 +266,7 @@ button {  width: auto; overflow: visible; }
     padding-top: 5px;
 }
 
-.thumbnail_wrapper .thumbnail_tags p{
+.thumbnail_wrapper .thumbnail_tags li{
     float: left;
     padding: 2px 7px 1px 8px;
 }
@@ -269,7 +274,7 @@ button {  width: auto; overflow: visible; }
 
 .thumbnail_wrapper div.thumbnail_tags {
     float: left;
-    width: 248px;
+    width: 247px;
     height: 50px;
     border-bottom: solid 1px;
     border-right: solid 1px;
@@ -294,8 +299,8 @@ button {  width: auto; overflow: visible; }
 
 
 nav.top_nav ul li {
-	display: inline;
-	margin: 0;
+	display: block;
+	font-size: 12pt;
 }
 
 body {
@@ -305,6 +310,7 @@ body {
 
 
 header {
+	font-size: 12pt;
 	height: 100px;
 	background: #2F2F2F;
 }
@@ -323,7 +329,7 @@ header h1 {
 }
 
 .content {
-	min-height: 760px;
+	min-height: 650px;
 }
 
 footer h5 {
@@ -335,7 +341,7 @@ footer h5 {
 }
 
 .login_form h1 {
-	font-size: 16pt;
+	font-size: 14pt;
 }
 
 .new_interval h1 {
@@ -392,6 +398,95 @@ footer h5 {
   display: block;
   font-style: italic;
 }
+
+.camera_angle_map {
+	
+	width:300px;
+}
+
+.tag_box {
+	width:500px;
+	float:left;
+}
+/***********************************/
+/* Style adjustments for show.html */
+
+.Edit {
+	margin-bottom: 10px;
+}
+
+.interval_show h1 {
+	font-size: 32px;
+}
+
+.interval_show strong {
+	font-size: 18px;
+}
+
+#cameraAngles img {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#cameraAngles p {
+	font-size: 10px;
+	margin-bottom: 5px;
+}
+
+#phenomena p {
+	margin-top: 30px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	float: right;
+}
+
+#phenomena h2 {
+	margin-bottom: 5px;
+}
+
+#sessTypePhrase div {
+	border-left: solid 1px #e5e5e6;
+	padding: 5px;
+	height: 120px;
+}
+
+#cameraAngles div {
+	border-left: solid 1px #e5e5e6;
+	padding: 5px;
+	height: 120px;
+}
+
+#phenomena div {
+	border-left: solid 1px #e5e5e6;
+	padding: 5px;
+	height: 120px;
+}
+
+#video div p {
+	border: 2px;
+	height: 350px;
+	text-align: center;
+	margin-top: 70px;
+}
+
+#startTime h4 {
+	text-align: right;
+}
+
+#endTime h4 {
+	text-align: center;
+}
+
+#sessionNum h4 {
+	text-align: right;
+}
+
+#date h4 {
+	text-align: center;
+}
+/* end style adjustments for show.html */
+/***************************************/
+
 
 
 /*
