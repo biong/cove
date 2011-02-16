@@ -54,26 +54,9 @@
 	    </div>
 		<div class="grid_4 video_snippit">
 	
-<<<<<<< HEAD
-			<div class="interval_time_background">
-				<div class="interval_time">
-					3:14-4:34
-				</div>
-			</div>
-
-			<input type="button" value="Create Interval" class="create_interval_button"></input>
-			<%= form_for([@interval, @interval.snippets.build]) do |f| %>
-			    <%= f.hidden_field(:offset) %>
-			    <%= f.hidden_field(:duration) %>
-			    <%= f.submit "Create Snippet", :class => "create_interval_button" %>
-			<% end %>
-
-		</div>
-=======
 			<%= render 'snippets' %>
 
             <button class="create_interval_button">Create Interval</button>
->>>>>>> 131ab7dabf1f414fd5f068a24a00c5c3767fdcc7
 			
 		</div>
 		

@@ -643,8 +643,6 @@ div#tag_checkboxes label {
 	border:transparent;
 }
 
-<<<<<<< HEAD
-=======
 .markstart:hover {
 	opacity:.5;
 	background:#00CC00;
@@ -722,7 +720,6 @@ div#tag_checkboxes label {
 	opacity:.5;
 	background:#0297c1;
 }
->>>>>>> 131ab7dabf1f414fd5f068a24a00c5c3767fdcc7
 
 /***********************************/
 /* Style adjustments for intervals.index.html */
