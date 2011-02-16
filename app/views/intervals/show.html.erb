@@ -41,8 +41,7 @@
 	<div class="clear"></div>
 	
 
-		<div class="grid_4">&nbsp;</div>
-		<div class="grid_5 video">
+		<div class="grid_9 video">
 		  <!-- Begin VideoJS -->
 		  <div class="vim-css video-js-box">
 		    <!-- Using the Video for Everybody Embed Code http://camendesign.com/code/video_for_everybody -->
@@ -50,24 +49,12 @@
               <source src="/public/videos/test_video.mov" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
             </video>
           </div>
-          <button class="markstart">Mark Start</button>
-          <button class="markend">Mark End</button>
-          
-          <div class="interval_form">
-          		<label>
-          			Title:
-          		</label>
-          		<input type="text" id="interval_title"/>
-          		</br>	
-          		<label>
-          			Description:
-          		</label>	
-          		<input type="text" id="interval_descript"/>
-          </div>
+
           <!-- End VideoJS -->
 	    </div>
 		<div class="grid_4 video_snippit">
 	
+<<<<<<< HEAD
 			<div class="interval_time_background">
 				<div class="interval_time">
 					3:14-4:34
@@ -82,16 +69,46 @@
 			<% end %>
 
 		</div>
+=======
+			<%= render 'snippets' %>
+
+            <button class="create_interval_button">Create Interval</button>
+>>>>>>> 131ab7dabf1f414fd5f068a24a00c5c3767fdcc7
 			
-	<div class="clear"></div>
-
-
-	<div class="grid_16 time">
-		<div class="time">
-			<h4><%= @interval.start_time.strftime("%T") %> ------------------------------------------------------------------------------------------</h4>
 		</div>
-	</div>
+		
 	<div class="clear"></div>
+	<div class="grid_8 mark_button">
+		<!--<button class="markstart">Mark start</button>
+        <button class="markend">Mark end</button>-->
+		<button class="markstart">Start Mark</button>
+    	<input type="text" id="start_mark" value=""></input>
+    	<button class="markend">End Mark</button>
+    	<input type="text" id="end_mark"></input>
+     </div>
+    <div class="clear"></div>
+    <div class="grid_8 interval_form">
+    	<fieldset>
+    	<legend>Create Snippet</legend>
+    	<p>Title:</p><input type="text" id="interval_title"></input><br/>
+        <p>Description:</p><textarea cols=37 rows=3 id="interval_description"></textarea>
+		</fieldset>     
+     </div>
+
+	<div class="clear"></div>
+	<div class="grid_4">&nbsp</div>
+	<div class="grid_4 save_button">
+		<button class="cancel">Cancel</button>
+        <button class="save">Save</button>
+	</div>
+	<div class="grid_4">&nbsp</div>
+
+	<!--<div class="grid_16 time">
+		<div class="time">
+			<h4><%= @interval.start_time.strftime("%T") %> ------------------------------------------------------------------------------------------
+		</div
+	</div
+	<div class="clear"div -->
 	
 
 	<div class="grid_16 space">

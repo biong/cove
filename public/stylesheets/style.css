@@ -577,7 +577,8 @@ div#tag_checkboxes label {
 	margin:10px;
 	height:60%;
 	width:40%;
-	background:#2f2f2f;
+	opacity:.6;
+	background:black;
 	
 }
 
@@ -598,24 +599,130 @@ div#tag_checkboxes label {
 	width:110px;
 	float:right;
 	border:transparent;
-	opacity:.5;
+	opacity:1;
 	background:#EC8723;
+	color:white;
 	}
 
 .create_interval_button:hover{
-	opacity:1;
+ 	opacity:.5;
 	background:#EC8723;
+}
+
+.mark_button {
+    float: left;
+    display:block;
+    text-align: center;
+}
+
+.markstart {
+    margin-top:10px;
+    margin-left: 20px;
+	height:40px;
+	width:50px;
+	opacity:1;
+	background:#00CC00;
 	color:white; 
+	border:transparent;
 }
 
-.start_interval_button{
-    background: #4CC417;
+.mark_button input{
+    width: 100px;
+    position: relative;
+    
 }
 
-.end_interval_button{
-    background: #FF0000;
+.markend {
+	margin-top:10px;
+    margin-left: 20px;
+	height:40px;
+	width:50px;
+	opacity:1;
+	background:#FF3333;
+	color:white; 
+	border:transparent;
 }
 
+<<<<<<< HEAD
+=======
+.markstart:hover {
+	opacity:.5;
+	background:#00CC00;
+}
+
+.markend:hover{
+	opacity:.5;
+	background:#FF3333;
+}
+
+.interval_form {
+	border-left:1px solid white;
+    margin-top: 10px;
+    background: #383838;
+   	height:auto;
+    padding: 10px;
+    display: block;
+}
+
+.interval_form legend{
+    color: #EC8723;
+    font-size: large;
+    text-align: left;
+    margin-left: 38px;
+}
+
+.interval_form fieldset{
+    text-align: center;
+}
+
+.interval_form p{
+    text-align: left;
+    margin-left: 38px;
+    margin-top: 10px;
+}
+
+.interval_form input{
+	width:380px;
+}
+
+.interval_form textarea{
+    width: 380px;
+    margin-top:0px;
+}
+
+.save_button{
+	text-align:center;
+}
+
+.cancel {
+	height:30px;
+	width:90px;
+	opacity:1;
+	background:#0297c1;
+	color:white; 
+	border:transparent;
+}
+
+.save {
+	margin:10px;
+	height:30px;
+	width:90px;
+	opacity:1;
+	background:#0297c1;
+	color:white; 
+	border:transparent;
+}
+
+.cancel:hover {
+	opacity:.5;
+	background:#0297c1;
+}
+
+.save:hover{
+	opacity:.5;
+	background:#0297c1;
+}
+>>>>>>> 131ab7dabf1f414fd5f068a24a00c5c3767fdcc7
 
 /***********************************/
 /* Style adjustments for intervals.index.html */
