@@ -1,24 +1,43 @@
-VideoJS.DOMReady(function(){
+$(document).ready(function(){
       
-  var myPlayer = VideoJS.setup('cove-video-player',{
+  var videoPlayer = VideoJS.setup('cove-video-player',{
 //    offset: 30,
     controlsHiding: false
   });
 
   $("button.markstart").click(function(){
-    myPlayer.markSnippetStart();
-    $('#snippet_offset').value = myPlayer.snippetStart();
+    videoPlayer.markSnippetStart();
+    return false;
   });
   $("button.markend").click(function(){
-    myPlayer.markSnippetEnd();
-    $('#snippet_duration').value = myPlayer.snippetDuration();
+    videoPlayer.markSnippetEnd();
+    return false;
   });
  
-  $('#new_snippet').submit(function(){
-    $('#snippet_offset').value = myPlayer.snippetStart();
-    $('#snippet_duration').value = myPlayer.snippetDuration();
-    $('#snippet_title').value = $('#snippet_title_textbox').value;
-    $('#snippet_description').value = $('#snippet_description_textbox').value;
-  });  
+  $('#new_snippet').submit(function(event){
+    $('#snippet_offset').val( videoPlayer.snippetStart() );
+    $('#snippet_duration').val( videoPlayer.snippetDuration() );
+
+    var target = $(event.target);
+
+    // This part borrowed from Paul
+    $.ajax({
+      type: 'POST' ,
+      url: target.attr( 'action' ),
+      data: target.serialize(),
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Accept",'text/html');
+      },
+      success: function(data) {
+        $('#snippet_list').html(data);
+        setTimeout( function() { jQuery(".noticeSuccessful").fadeTo(1000,0); }, 6000);
+        setTimeout( function() { jQuery(".noticeErrors").fadeTo(1000,0); }, 30000);
+        clearTimeout();
+        return false;
+      },
+      dataType: 'text'
+    });
+    return true;
+  });
 });
 
