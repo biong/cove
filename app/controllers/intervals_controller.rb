@@ -4,24 +4,30 @@ class IntervalsController < ApplicationController
     before_filter :find_interval, :only => [:show, :update, :edit]
     
 	def index
-		@camera_angles = Interval.unique_angles
-		@days = Interval.unique_days
-		@session_types = Interval.unique_session_types
-		@phrase_types = Interval.unique_phrase_types
-		@phrase_names = Interval.unique_phrase_names
-
-    search = Interval.search_with params
-    @intervals = search.results
+    @filters = Interval.filters
+    @intervals = Interval.search(params).page params[:page]
 
     render 'index'
   end
 
   def show
-    @tags = @interval.taggings
-    @phenomenon = @interval.codings.phenomenon
-    @people = @interval.codings.people
+    @applied_tags= @interval.taggings
 
-    render "show"
+    #@unapplied_phenomenon = Code.phenomenon.unapplied(@interval.id)
+    @applied_phenomenon = @interval.codings.phenomenon
+    @all_phenomenon = Code.phenomenon.all
+
+    @applied_people = @interval.codings.people
+    @all_people = Code.people.all
+    #@unapplied_people = Code.people.unapplied(@interval.id)
+
+    respond_to do |format|
+      format.sprite { send_sprite }
+      format.jpg { send_thumbnail }
+      format.html {  render "show"}
+      format.m4v { send_video}
+    end
+
   end
 
   def new
@@ -63,4 +69,18 @@ class IntervalsController < ApplicationController
   def find_interval
     @interval = Interval.find(params[:id])
   end
+  
+  def send_thumbnail
+    send_file(@interval.thumbnail_file, :type => 'image/jpeg', :disposition => 'inline', :url_based_filename => true) 
+  end
+  
+  def send_sprite
+    
+    send_file(@interval.sprite_file, :type => 'image/jpeg', :disposition => 'inline', :url_based_filename => true)
+  end
+  
+  def send_video
+    send_file(@interval.video_file, :type => 'video/mp4', :disposition => 'inline', :url_based_filename => true) 
+  end
+  
 end
