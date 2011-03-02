@@ -3,8 +3,8 @@
 		<!-- Begin VideoJS -->
 		<div class="vim-css video-js-box">
 		<!-- Using the Video for Everybody Embed Code http://camendesign.com/code/video_for_everybody -->
-     		<video id="cove-video-player" class="video-js" width="480" height="270" controls>
- 				<source src="http://www.yo-yo.org/mp4/yu3.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+     		<video id="cove-video-player" class="video-js" width="640" height="360" controls>
+ 				<source src="/videos/<%= @interval.filename %>.m4v" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
     	 	</video>
 
     </div>
@@ -30,7 +30,7 @@
 	<div class="grid_16 display_snippet">
 		<div class="alpha grid_11">
 		
-			<div class="grid_8 mark_buttons">
+			<div class="grid_9 mark_buttons">
 			<button class="markstart">Start Mark</button><input type="text" id="start_mark"></input>
    	 		<button class="markend">End Mark</button><input type="text" id="end_mark"></input>
    	 		</div>
