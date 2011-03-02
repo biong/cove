@@ -100,19 +100,15 @@ class Interval < ActiveRecord::Base
   def sprite_file
     return File.join(path_prefix, "sprites", %Q[#{filename.chomp(".m4v")}_sprite.jpg]) if filename
   end
+  
   def thumbnail_file
     return File.join(path_prefix, "thumbs" , %Q[#{filename.chomp(".m4v")}_thumb.jpg]) if filename
   end
-
-<<<<<<< HEAD
-  has_many :interval_tags, :dependent => :destroy
-  has_many :tags, :through => :interval_tags
-  has_many :snippets
-=======
+  
   def video_file
     return File.join(path_prefix, "videos",filename) if filename
   end
->>>>>>> 08f69b651419c5e815472d67d552771729d0104b
+
 
   def self.import!
     Dir.foreach("tmp/notes/") do |file|

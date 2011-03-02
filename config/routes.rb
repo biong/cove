@@ -1,16 +1,11 @@
 Cove::Application.routes.draw do
 
   resources :intervals do
-<<<<<<< HEAD
-  resources :snippets
-  resources :annotations
-  resources :taggings
-
-=======
+  
     resources :annotations
     resources :taggings, :only => [:show, :create]
     resources :codings, :only => [:show, :create]
->>>>>>> 08f69b651419c5e815472d67d552771729d0104b
+
   end
 
   resources :definitions
