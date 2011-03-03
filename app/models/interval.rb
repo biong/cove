@@ -20,6 +20,7 @@ class Interval < ActiveRecord::Base
   has_many :codings
   has_many :taggings
   has_many :tags, :through => :taggings
+  has_many :snippets
 
   def self.search args
 	  search_conditions = {}

@@ -5,7 +5,7 @@ Cove::Application.routes.draw do
     resources :annotations
     resources :taggings, :only => [:show, :create]
     resources :codings, :only => [:show, :create]
-
+	resources :snippets
   end
 
   resources :definitions

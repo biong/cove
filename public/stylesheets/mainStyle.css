@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/* line 5, ../../../app/stylesheets/mainStyle.scss */
+.interaction_container ul li {
+  list-style: none;
+  float: left;
+}
+
+/* line 10, ../../../app/stylesheets/mainStyle.scss */
+.code, .tag {
+  width: 100px;
+  height: 20px;
+  margin: 5px;
+  text-align: center;
+  padding-top: 5px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  color: black;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* line 22, ../../../app/stylesheets/mainStyle.scss */
+.tag {
+  cursor: auto;
+}
+
+/* line 26, ../../../app/stylesheets/mainStyle.scss */
+.applied {
+  background-color: #6e6e6e;
+  color: white;
+}
+
+/* line 30, ../../../app/stylesheets/mainStyle.scss */
+.unapplied {
+  background-color: #d2d2d2;
+}
+
+/* line 34, ../../../app/stylesheets/mainStyle.scss */
+#tagging_name {
+  width: 220px;
+  height: 20px;
+  font-size: 18pt;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+/* line 43, ../../../app/stylesheets/mainStyle.scss */
+#adding_shit_to_videos {
+  height: 360px;
+  overflow: scroll;
+}
