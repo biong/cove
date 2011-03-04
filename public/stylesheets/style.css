@@ -836,10 +836,7 @@ div#video div p {
 }
 
 .interval_browse{
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    display: block;
+    margin-top: 10px;
     background:#383838;
     float: left;
 }
@@ -902,7 +899,7 @@ div#video div p {
 	margin-top:20px;
     float: left;
     display: inline;
-    margin-left: 20px;
+    margin-left: 5px;
 }
 
 .interval_form legend{
@@ -912,7 +909,7 @@ div#video div p {
 }
 
 .interval_form fieldset{
-	margin-left:20px;
+
 }
 
 .interval_form p{

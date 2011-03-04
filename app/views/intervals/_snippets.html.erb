@@ -19,18 +19,17 @@
 	<div class="clear"></div>
 	
 	<div class="grid_16 display_snippet">
-		<div class="alpha grid_11">
+		<div class="alpha grid_9">
 		
-			<div class="grid_9 mark_buttons">
-			<div class = "mark_times">
-			<button class="markstart">Start Mark</button><input type="text" id="start_mark"></input>
-   	 		<button class="markend">End Mark</button><input type="text" id="end_mark"></input>
+			<div class="grid_8 mark_buttons">
+				<button class="markstart">Start Mark</button><input type="text" id="start_mark"></input>
+   	 			<button class="markend">End Mark</button><input type="text" id="end_mark"></input>
    	 		</div>
 			
     		<!-- grid for browsing intervals -->
     		<div class="interval_browse omega">
-    			<%= render 'intervals/snippets' %>
-			</div>	
+    			<%= render 'intervals/snippets_list' %>
+				
 		</div>
 			
     	
@@ -43,8 +42,10 @@
 			</fieldset>   
 	
 			<div class="save_cancel_button">
-				<button class="cancel">Close</button>
-      		 	<button class="save">Save</button>
+				<button class="cancel">Cancel</button>
+                                <%= f.hidden_field :offset %>
+                                <%= f.hidden_field :duration %>
+                                <%= f.submit "Save", :class => "save" %>
     		</div>
     </div>
     		

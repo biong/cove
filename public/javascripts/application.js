@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 $(document).ready(function(){
 
       
-  var videoPlayer = VideoJS.setup('cove-video-player',{
+//  var videoPlayer = VideoJS.setup('cove-video-player',{
 //    offset: 30,
-    controlsHiding: false
-  });
+//    controlsHiding: false
+//  }); 
 
   $("button.markstart").click(function(){
     videoPlayer.markSnippetStart();
@@ -15,12 +15,14 @@ $(document).ready(function(){
   $("button.markend").click(function(){
     videoPlayer.markSnippetEnd();
     return false;
-  });
+  }); 
+  
+  /* Billy's javascript */
   
   $('.snippet_info').hide();
   $('.interval_form').hide();
-  $('.mark_times').hide();
   $('.mark_buttons').hide();
+  
   $('.create_interval_button').click(function(){
     $('.create_interval_button').hide();
     $('.mark_buttons').show("slide", {direction: "left"}, 2000);
@@ -37,10 +39,13 @@ $(document).ready(function(){
   });
   
   $('.snippet_edit').hide();
+  
   $('.snippet').click(function(){
     $('.interval_form').hide();
     $('.snippet_info').show();
-    $('.mark_buttons').delegate().hide("slide", {direction: "left"}, 500);
+    $('.create_interval_button').show();
+    $('.interval_browse').show();
+    $('.mark_buttons').hide("slide", {direction: "left"}, 500);
     return false;
   });
   
@@ -49,6 +54,8 @@ $(document).ready(function(){
     $('.create_interval_button').show();
     return false;
   });
+  
+  /* End Billy's js */
     
  
   $('#new_snippet').submit(function(event){
@@ -79,7 +86,7 @@ $(document).ready(function(){
 });
 
 /* Definition Function */
-=======
+
 /* Thumbnail fast scrub */    
     function changeSpriteWindow(obj){
         //TODO: figure out how to grab misc 10 pixel additional margin
@@ -114,8 +121,6 @@ $(document).ready(function(){
     
 /* end Thumbnail fast scrub */    
 
-
->>>>>>> 08f69b651419c5e815472d67d552771729d0104b
 $(document).ready(function(){
 	
 	// --------------------------------
@@ -206,9 +211,6 @@ $(document).ready(function(){
 });
 
 
-<<<<<<< HEAD
-=======
-
 // -------------------------------------------------------------------
 // Javascript for tagging
 // -------------------------------------------------------------------
@@ -278,4 +280,3 @@ $(document).ready(function(){
     });
     
   });
->>>>>>> 08f69b651419c5e815472d67d552771729d0104b
