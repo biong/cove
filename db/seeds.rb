@@ -9,3 +9,23 @@
 Factory(:regular_user)
 Factory(:admin_user)
 Factory(:first_time_user)
+
+marking = Factory(:tagging, :name => "Marking")
+riffing = Factory(:tagging, :name => "Riffing")
+sketching = Factory(:tagging, :name => "Sketching")
+Factory(:tagging, :name => "Distributed Memory")
+Factory(:tagging, :name => "Costumes")
+Factory(:tagging, :name => "Sonification")
+Factory(:tagging, :name => "Imagery")
+Factory(:tagging, :name => "Props")
+
+interval = Factory(:interval,  :taggings => [marking, riffing, sketching])
+
+100.times do
+  Factory(:code,:name => ActiveSupport::SecureRandom.base64(8),  :coding_type => "phenomenon")
+end
+
+#add intervals so we can test that thumbnails are working
+10.times do 
+  Factory(:interval)
+end

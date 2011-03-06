@@ -1,108 +1,88 @@
 class IntervalsController < ApplicationController
-  # GET /intervals
-  # GET /intervals.xml
-  def index
-    intervals = Interval.find(:all, :order => 'start_time').map{|int|
-	duration = (int.end_time - int.start_time)
-	hours = (duration / (60*60)).floor
-	minutes = ((duration - hours*60*60)/60).floor
-	int[:duration] = sprintf("%02dh%02dm", hours, minutes);
-	int
-    }
-    @angles = intervals.map {|x| x.camera_angle}.uniq.sort
-    @days = intervals.map{|x| x.start_time}.map {|x|
-	sprintf("%d-%d-%d", x.month, x.day, x.year)
-    }.uniq
+    before_filter :authenticate_user!
+    before_filter :require_nda
+    before_filter :find_interval, :only => [:show, :update, :edit]
+    
+    respond_to :html
+    respond_to :m4v, :sprite, :jpg, :only => [:show]
+	def index
+    @filters = Interval.filters
+    all = Interval.search(params)
+    @num_results = all.size.to_s
+    @intervals = all.page params[:page]
+    @num_shown = @intervals.size.to_s
 
-    @filtered_intervals = intervals.reject{|x|
-    	if(params[:date].nil? || params[:date] == "")
-		false
-	else
-		day = sprintf("%d-%d-%d", x.start_time.month, x.start_time.day, x.start_time.year)
-		params[:date] != day
-	end
-    }.reject{|x|
-    	if(params[:camera_angle].nil? || params[:camera_angle] == "")
-		false
-	else
-		params[:camera_angle] != x.camera_angle
-	end
-    }
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @filtered_intervals }
-    end
+    render 'index'
   end
 
-  # GET /intervals/1
-  # GET /intervals/1.xml
   def show
-    @interval = Interval.find(params[:id])
+    @applied_tags= @interval.taggings
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @interval }
+    @applied_phenomenon = @interval.codes.phenomenon
+    @all_phenomenon = Code.phenomenon.all()
+
+    @applied_people = @interval.codes.people
+    @all_people = Code.people.all()
+
+    respond_with(@interval) do |format|
+      format.sprite { send_sprite }
+      format.jpg { send_thumbnail }
+      format.m4v { send_video}
     end
+
   end
 
-  # GET /intervals/new
-  # GET /intervals/new.xml
   def new
     @interval = Interval.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @interval }
-    end
+    render "new"
   end
 
-  # GET /intervals/1/edit
   def edit
-    @interval = Interval.find(params[:id])
+    render "edit"
   end
 
-  # POST /intervals
-  # POST /intervals.xml
+
   def create
     @interval = Interval.new(params[:interval])
-
-    respond_to do |format|
-      if @interval.save
-        format.html { redirect_to(@interval, :notice => 'Interval was successfully created.') }
-        format.xml  { render :xml => @interval, :status => :created, :location => @interval }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @interval.errors, :status => :unprocessable_entity }
-      end
+    if @interval.save
+      redirect_to(@interval, :notice => 'Interval was successfully created.')
+    else
+      render :action => "new"
     end
   end
 
-  # PUT /intervals/1
-  # PUT /intervals/1.xml
   def update
-    @interval = Interval.find(params[:id])
-
-    respond_to do |format|
-      if @interval.update_attributes(params[:interval])
-        format.html { redirect_to(@interval, :notice => 'Interval was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @interval.errors, :status => :unprocessable_entity }
-      end
+    @interval.attributes = {'tag_ids' => []}.merge(params[:interval] || {})
+    
+    if @interval.update_attributes(params[:interval])
+      redirect_to(@interval, :notice => 'Interval was successfully updated.')
+    else
+      render :action => "edit"
     end
   end
 
-  # DELETE /intervals/1
-  # DELETE /intervals/1.xml
   def destroy
     @interval = Interval.find(params[:id])
     @interval.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(intervals_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(intervals_url)
   end
+
+  private
+  def find_interval
+    @interval = Interval.find(params[:id])
+  end
+  
+  def send_thumbnail
+    send_file(@interval.thumbnail_file, :type => 'image/jpeg', :disposition => 'inline', :url_based_filename => true) 
+  end
+  
+  def send_sprite
+    
+    send_file(@interval.sprite_file, :type => 'image/jpeg', :disposition => 'inline', :url_based_filename => true)
+  end
+  
+  def send_video
+    send_file(@interval.video_file, :type => 'video/mp4', :disposition => 'inline', :url_based_filename => true) 
+  end
+  
 end

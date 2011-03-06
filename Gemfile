@@ -1,9 +1,21 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '~>3.0.3'
+
 # gem 'mysql2'
 gem 'simple_form'
 gem 'capistrano'
+gem 'fastercsv'
+
+gem 'meta_search'
+gem 'haml'
+gem 'compass'
+gem 'kaminari'
+gem 'newrelic_rpm'
+#necessary for sunspot solr in rails 3
+
+#pagination tool
+gem "will_paginate", "~> 3.0pre2"
 
 gem "resque", :require => "resque/server"
 
@@ -13,6 +25,7 @@ gem "resque", :require => "resque/server"
 gem 'narray'
 
 gem 'devise'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem "cancan"
 gem 'SystemTimer', :platforms => :mri_18 
 #gem 'devise_invitable', '0.3.4'
@@ -27,7 +40,7 @@ gem 'hoptoad_notifier'
   # gem 'fakefs', :require => 'fakefs/safe'
 	gem 'rails3-generators'
 	gem "rspec"
-	gem "rspec-rails", "~> 2.4.0"
+	gem "rspec-rails"
 	gem 'email_spec'
 	gem "capybara"
 	gem "cucumber"
@@ -38,7 +51,7 @@ gem 'hoptoad_notifier'
 	gem "autotest"
 	gem 'autotest-rails'
   # gem 'ruby-debug19', :platforms => :mri_19
-  # gem 'ruby-debug', :platforms => :mri_18
+  gem 'ruby-debug', :platforms => :mri_18
 	
   # additional testing gems
 	gem "thin"
@@ -49,3 +62,6 @@ gem 'hoptoad_notifier'
 	gem 'factory_girl_rails'
 	
 end
+
+#gem 'mysql2'
+
