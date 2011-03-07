@@ -782,7 +782,11 @@ input[type=search] {
 /****Row 4 - start****/
 /*create subinterval widget (Winny)*/
 
-
+.create_interval_button{
+    background-color: #FF9933;
+    border: solid 1px;
+    border-color: black;
+}
 
 /* end style adjustments for show.html */
 /***************************************/
